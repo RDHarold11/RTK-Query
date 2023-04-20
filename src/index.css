@@ -7,3 +7,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  font-family: "Montserrat";
+}
+
+.form {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}

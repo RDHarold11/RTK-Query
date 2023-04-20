@@ -1,14 +1,19 @@
 import React from 'react'
+import { useDeleteShopItemsMutation } from '../features/shopItems/apiSlice'
 
-const Items = () => {
+const Items = ({id, description, img, price, category}) => {
+  const [deleteItem] = useDeleteShopItemsMutation()
   return (
     <div className=''>
         <div>
-            <img className='max-w-[200px]' src="https://assets.website-files.com/5d9d08afa8a650b6a1830c36/5d9d897ebce455c7d632bbc2_20190907_SFP_Product_CameronKirby_Web_800x1200-10__35690.1568415486.1280.1280.jpg" alt="" />
+            <img className='max-w-[200px]' src={img} alt={description} />
         </div>
         <div>
-            <p>Charcoal & Orange Logo Tee</p>
-            <h3>$29.50 USD</h3>
+            <p className='my-1 capitalize'>{description}</p>
+            <div className='flex gap-4'>
+              <h3 className='font-bold text-[21px]'>${price} USD</h3>
+              <button className='text-[#FF6969]' onClick={() => deleteItem(id)}>Delete</button>
+            </div>
         </div>
     </div>
   )
